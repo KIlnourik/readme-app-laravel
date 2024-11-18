@@ -14,6 +14,7 @@ setup: ## Настройка и запуск
 	make up
 	./vendor/bin/sail artisan key:generate
 	sleep 10 && make migrate
+	make npm-install
 
 configuration: ## Создание .env
 	cp --update=none .env.example .env
@@ -23,6 +24,12 @@ migrate: ## Миграции и сидирование
 
 up: ## docker compose up
 	./vendor/bin/sail up -d
+
+npm-install: ## npm install
+	./vendor/bin/sail npm install
+
+vite-dev: ## Запуск vite в дев режиме
+	./vendor/bin/sail npm run dev
 
 queue-work: ## Запуск воркера очередей
 	./vendor/bin/sail artisan queue:work
