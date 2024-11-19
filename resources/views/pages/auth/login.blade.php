@@ -1,4 +1,8 @@
 <x-layout>
+    <x-slot:title>
+        readme: авторизация
+    </x-slot:title>
+
     <main class="page__main page__main--login">
         <div class="container">
             <h1 class="page__title page__title--login">Вход</h1>

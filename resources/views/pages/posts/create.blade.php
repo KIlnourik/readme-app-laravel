@@ -1,4 +1,8 @@
 <x-layout>
+    <x-slot:title>
+        readme: добавление публикации
+    </x-slot:title>
+
     <main class="page__main page__main--adding-post">
         <div class="page__main-section">
             <div class="container">

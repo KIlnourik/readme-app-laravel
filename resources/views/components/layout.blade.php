@@ -16,7 +16,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>readme: блог, каким он должен быть</title>
+        <title>{{$title ?? 'readme: блог, каким он должен быть'}}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 

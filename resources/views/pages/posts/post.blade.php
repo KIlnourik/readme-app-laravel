@@ -1,4 +1,7 @@
 <x-layout>
+    <x-slot:title>
+        readme: публикация
+    </x-slot:title>
 
     <main class="page__main page__main--publication">
         <div class="container">

@@ -1,4 +1,8 @@
 <x-layout>
+    <x-slot:title>
+        readme: страница результатов поиска
+    </x-slot:title>
+
     <main class="page__main page__main--search-results">
         <h1 class="visually-hidden">Страница результатов поиска</h1>
         <section class="search">
