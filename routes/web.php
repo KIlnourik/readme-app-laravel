@@ -1,19 +1,18 @@
 <?php
 
-use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterUserController;
 
-Route::get('/', function () {
-    return view('pages.main');
-});
+Route::get('/', MainPageController::class);
 
 Route::middleware('guest')->group(function () {
     Route::get('/registration', [RegisterUserController::class, 'create']);
     Route::post('/registration', [RegisterUserController::class, 'store']);
 
-    Route::get('/login', function () {
-        return view('pages.auth.login');
-    });
+    Route::get('/login', [SessionController::class, 'index'])->name('login');
+    Route::post('/login', [SessionController::class, 'create']);
 });
 
 Route::middleware('auth')->group(function () {
@@ -45,4 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/search', function () {
         return view('pages.search');
     });
+
+    Route::delete('/logout', [SessionController::class, 'destroy']);
 });
