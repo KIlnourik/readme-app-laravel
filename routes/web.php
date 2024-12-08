@@ -7,7 +7,6 @@ Route::get('/', function () {
     return view('pages.main');
 });
 
-
 Route::middleware('guest')->group(function () {
     Route::get('/registration', [RegisterUserController::class, 'create']);
     Route::post('/registration', [RegisterUserController::class, 'store']);
@@ -17,7 +16,7 @@ Route::middleware('guest')->group(function () {
     });
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::middleware('auth')->group(function () {
     Route::get('/popular', function () {
         return view('pages.popular');
     });

@@ -16,9 +16,16 @@ class RegisterUserController extends Controller
 
     public function store(RegisterUserRequest $request): RedirectResponse
     {
-        dd($request->validated());
+        $validated = $request->validated();
 
-        User::create($request->validated());
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+
+            $validated['avatar'] = $request->file('avatar')
+                ->storeAs('uploads', $avatar->getClientOriginalName());
+        }
+
+        User::create($validated);
 
         return redirect('/');
     }
